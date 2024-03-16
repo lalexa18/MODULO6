@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
-public class Exponente {
-    public double calcularPotencia(Scanner scanner) {
+public class Exponenciacion {
+    public double calcular(int seleccionOperacion,Scanner scanner) {
         System.out.print("Ingrese la base: ");
         double base = scanner.nextDouble();
         System.out.print("Ingrese el exponente: ");

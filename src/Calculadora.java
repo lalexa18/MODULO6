@@ -6,33 +6,35 @@ public class Calculadora {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Double> resultados = new ArrayList<>();
-
         boolean continuar = true;
 
         while (continuar) {
-            String[] opciones = {"CÍRCULO", "CUADRADO", "TRIÁNGULO", "RECTÁNGULO", "PENTÁGONO"};
+            String[] opciones = {"CÍRCULO", "CUADRADO", "TRIÁNGULO", "RECTÁNGULO", "PENTÁGONO", "EXPONENCIACION"};
 
             System.out.println("\n   LISTA DE OPCIONES \n");
             for (int i = 0; i < opciones.length; i++) {
                 System.out.println((i + 1) + ". " + opciones[i]);
             }
+
             int seleccionFigura;
             while (true) {
                 System.out.print("\nSeleccione el número de la figura: ");
                 seleccionFigura = scanner.nextInt();
 
-                if (seleccionFigura > 5 || seleccionFigura < 1) {
+                if (seleccionFigura > 6 || seleccionFigura < 1) {
                     System.out.println("¡Error! Por favor, seleccione un número válido de la lista.");
                 } else {
                     break;
                 }
             }
+
             String[] selecciona = {"Área", "Perímetro"};
 
             System.out.println("\n   LISTA DE OPCIONES ");
             for (int i = 0; i < selecciona.length; i++) {
                 System.out.println((i + 1) + ". " + selecciona[i]);
             }
+
             int seleccionOperacion;
             while (true) {
                 System.out.print("\nSeleccione un número: ");
@@ -49,6 +51,7 @@ public class Calculadora {
                     break;
                 }
             }
+
             double resultado = 0;
             switch (seleccionFigura) {
                 case 1: // Círculo
@@ -76,9 +79,15 @@ public class Calculadora {
                     resultado = pentagono.calcular(seleccionOperacion, scanner);
                     break;
 
+                case 6: // Exponente
+                    Exponenciacion Exponenciacion = new Exponenciacion();
+                    resultado = Exponenciacion.calcular(seleccionOperacion, scanner);
+                    break;
+
                 default:
                     System.out.println("Selección inválida. Por favor, elija una opción válida.");
             }
+
             resultados.add(resultado);
 
             System.out.println("\nResultado:");
@@ -92,6 +101,7 @@ public class Calculadora {
                 System.out.println("¡Adiosito dijo Monchito!");
             }
         }
+
         System.out.println("\nResultados:");
         for (int i = 0; i < resultados.size(); i++) {
             System.out.println((i + 1) + ". " + resultados.get(i));
